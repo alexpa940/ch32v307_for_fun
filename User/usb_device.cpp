@@ -17,7 +17,7 @@
 /*!< global descriptor */
 static const uint8_t usb_device_descriptor[] = {
     USB_DEVICE_DESCRIPTOR_INIT(USB_2_0, 0x00, 0x00, 0x00, USBD_VID, USBD_PID, 0x0200, 0x01),
-    USB_CONFIG_DESCRIPTOR_INIT(USB_CONFIG_SIZE, 0x04, 0x01, USB_CONFIG_BUS_POWERED, USBD_MAX_POWER),
+    USB_CONFIG_DESCRIPTOR_INIT(USB_CONFIG_SIZE, 0x08, 0x01, USB_CONFIG_BUS_POWERED, USBD_MAX_POWER),
 
 //    /************** Descriptor of Joystick Mouse interface ****************/
 //    /* 09 */
@@ -52,9 +52,25 @@ static const uint8_t usb_device_descriptor[] = {
 //    HID_INT_EP_INTERVAL, /* bInterval: Polling Interval */
 
 
+//    CDC_ACM_DESCRIPTOR_INIT(CDC_START_IDX, ((CDC_START_IDX + 2)|0x80), (CDC_START_IDX + 1), ((CDC_START_IDX + 1)|0x80), 0x02),
+//#if CDC_COUNT > 1
+//    CDC_ACM_DESCRIPTOR_INIT((CDC_START_IDX + 2), ((CDC_START_IDX + 4)|0x80), (CDC_START_IDX + 3), ((CDC_START_IDX + 3)|0x80), 0x02),
+//#endif
+//#if CDC_COUNT > 2
+//    CDC_ACM_DESCRIPTOR_INIT((CDC_START_IDX + 2 + 2), ((CDC_START_IDX + 4 + 2)|0x80), (CDC_START_IDX + 3 + 2), ((CDC_START_IDX + 3 + 2)|0x80), 0x02),
+//#endif
+//#if CDC_COUNT > 3
+//    CDC_ACM_DESCRIPTOR_INIT((CDC_START_IDX + 2 + 4), ((CDC_START_IDX + 4 + 4)|0x80), (CDC_START_IDX + 3 + 4), ((CDC_START_IDX + 3 + 4)|0x80), 0x02),
+//#endif
     CDC_ACM_DESCRIPTOR_INIT(CDC_START_IDX, ((CDC_START_IDX + 2)|0x80), (CDC_START_IDX + 1), ((CDC_START_IDX + 1)|0x80), 0x02),
 #if CDC_COUNT > 1
-    CDC_ACM_DESCRIPTOR_INIT((CDC_START_IDX + 2), ((CDC_START_IDX + 4)|0x80), (CDC_START_IDX + 3), ((CDC_START_IDX + 3)|0x80), 0x02),
+    CDC_ACM_DESCRIPTOR_INIT((CDC_START_IDX + 2), ((CDC_START_IDX + 2)|0x80), (CDC_START_IDX + 3), ((CDC_START_IDX + 3)|0x80), 0x02),
+#endif
+#if CDC_COUNT > 2
+    CDC_ACM_DESCRIPTOR_INIT((CDC_START_IDX + 2 + 2), ((CDC_START_IDX + 2)|0x80), (CDC_START_IDX + 3 + 2), ((CDC_START_IDX + 3 + 2)|0x80), 0x02),
+#endif
+#if CDC_COUNT > 3
+    CDC_ACM_DESCRIPTOR_INIT((CDC_START_IDX + 2 + 4), ((CDC_START_IDX + 2)|0x80), (CDC_START_IDX + 3 + 4), ((CDC_START_IDX + 3 + 4)|0x80), 0x02),
 #endif
     ///////////////////////////////////////
     /// string0 descriptor

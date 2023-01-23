@@ -33,10 +33,6 @@ static struct cdc_device_s * cdc_intf_to_obj(uint8_t inf)
         if(cdc_obj[i] == NULL) {
           continue;
         }
-        if(inf == 3)
-        {
-            (void)0;
-        }
         if(cdc_obj[i]->intf0.intf_num == inf)
         {
             return cdc_obj[i];
@@ -432,4 +428,3 @@ bool CDC_ReceiveQueue_ReadUntil(CDC_ReceiveQueue_TypeDef *queue,
   }
   return false;
 }
-

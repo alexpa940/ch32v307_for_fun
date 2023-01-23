@@ -21,6 +21,8 @@
 
 USBSerial SerialUSB1(CDC_START_IDX);
 USBSerial SerialUSB2(CDC_START_IDX + 1);
+USBSerial SerialUSB3(CDC_START_IDX + 2);
+USBSerial SerialUSB4(CDC_START_IDX + 3);
 
 USBSerial::USBSerial(uint8_t idx)
 {

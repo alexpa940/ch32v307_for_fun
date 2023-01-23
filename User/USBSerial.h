@@ -73,5 +73,7 @@ class USBSerial : public Stream {
 
 extern USBSerial SerialUSB1;
 extern USBSerial SerialUSB2;
+extern USBSerial SerialUSB3;
+extern USBSerial SerialUSB4;
 
 #endif /* _USBSERIAL_H_ */

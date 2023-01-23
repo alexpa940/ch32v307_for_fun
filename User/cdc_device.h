@@ -14,7 +14,7 @@
 #include "Arduino.h"
 #include "usbd_cdc.h"
 
-#define CDC_COUNT 2
+#define CDC_COUNT 4
 #define CDC_START_IDX 0
 
 struct cdc_ep
@@ -24,16 +24,6 @@ struct cdc_ep
 };
 
 extern struct cdc_ep cdc_eps[CDC_COUNT];
-
-/*!< endpoint address */
-#define CDC_IN_EP_1  0x81
-#define CDC_OUT_EP_1 0x01
-#define CDC_INT_EP_1 0x82
-
-/*!< endpoint address */
-#define CDC_IN_EP_2  0x83
-#define CDC_OUT_EP_2 0x03
-#define CDC_INT_EP_2 0x84
 
 #ifdef CONFIG_USB_HS
 #define CDC_MAX_MPS 512

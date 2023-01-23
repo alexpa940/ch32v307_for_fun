@@ -15,7 +15,7 @@
 #define usb_free(ptr)    free(ptr)
 
 #ifndef CONFIG_USB_DBG_LEVEL
-#define CONFIG_USB_DBG_LEVEL USB_DBG_LOG
+#define CONFIG_USB_DBG_LEVEL USB_DBG_ERROR
 #endif
 
 /* Enable print with color */
@@ -32,7 +32,7 @@
 /* ================= USB Device Stack Configuration ================ */
 
 /* Ep0 max transfer buffer, specially for receiving data from ep0 out */
-#define CONFIG_USBDEV_REQUEST_BUFFER_LEN 256
+#define CONFIG_USBDEV_REQUEST_BUFFER_LEN 1024
 
 /* Setup packet log for debug */
 // #define CONFIG_USBDEV_SETUP_LOG_PRINT
@@ -50,7 +50,7 @@
 #define CONFIG_USBDEV_TX_RX_PRIO 4
 #endif
 #ifndef CONFIG_USBDEV_TX_RX_STACKSIZE
-#define CONFIG_USBDEV_TX_RX_STACKSIZE 2048
+#define CONFIG_USBDEV_TX_RX_STACKSIZE 8128
 #endif
 #endif
 
@@ -131,7 +131,7 @@
 
 //#define USBD_IRQHandler USBD_IRQHandler
 //#define USB_BASE (0x40080000UL)
-#define USB_NUM_BIDIR_ENDPOINTS 8
+//#define USB_NUM_BIDIR_ENDPOINTS 16
 
 /* ================ USB Host Port Configuration ==================*/
 
